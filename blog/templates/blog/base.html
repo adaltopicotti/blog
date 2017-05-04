@@ -26,8 +26,8 @@
         </div>
         <div class="nav-right nav-menu">
           <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
-          <a class="nav-item is-tab is-hidden-mobile">Features</a>
-          <a class="nav-item is-tab is-hidden-mobile">Pricing</a>
+          <a class="nav-item is-tab is-hidden-mobile">Consultar CPF</a>
+          <a class="nav-item is-tab is-hidden-mobile">Consultar CEP</a>
           <a class="nav-item is-tab is-hidden-mobile">About</a>
         </div>
         <span class="nav-toggle">
@@ -45,13 +45,10 @@
             </a>
             <a class="nav-item is-tab" href="{% url 'logout' %}">Log out</a>
           {% else %}
-            <a class="nav-item" href="{% url 'login' %}">Login</span></a>
+            <a class="nav-item" href="{% url 'login' %}">Login</a>
           {% endif %}
           </div>
         </div>
-        <div>
-        </div>
-      </div>
     </nav>
     <div class="tabs is-right hero is-primary">
       <ul>
