@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   </head>
   <body>
-
+<!--
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -18,14 +18,14 @@
       ga('send', 'pageview');
 
     </script>
-
+  -->
     <nav class="nav has-shadow">
       <div class="container">
         <div class="nav-left">
           <a class="nav-item is-hidden-mobile">Adalto Picotti Junior</a>
         </div>
         <div class="nav-right nav-menu">
-          <a class="nav-item is-tab is-hidden-mobile is-active">Home</a>
+          <a class="nav-item is-tab is-hidden-mobile is-active" href="/">Home</a>
           <a class="nav-item is-tab is-hidden-mobile">Features</a>
           <a class="nav-item is-tab is-hidden-mobile">Pricing</a>
           <a class="nav-item is-tab is-hidden-mobile">About</a>
@@ -61,19 +61,34 @@
           </figure>
         </li>
         {% if user.is_authenticated %}
-          <li><a>New Post</a></li>
-          <li><a>Draft</a></li>
+          <li><a href="{% url 'post_new' %}">New Post</a></li>
+          <li><a href="{% url 'post_draft_list' %}">Draft</a></li>
         {% endif %}
       </ul>
     </div>
-
-    <div class="box">
-      <div>
-        {% block content %}
-        {% endblock %}
+    <!-- GRID -->
+    <div class="columns">
+      <div class="column is-offset-1 is-6">
+        <p class="notification">
+          <code class="html">is-three-quarters</code>
+          <div>
+            {% block content %}
+            {% endblock %}
+          </div>
+        </p>
+      </div>
+      <div class="column">
+        <div class="column is-offset-4 is-4">
+          <p class="notification is-warning">Auto</p>
+        </div>
       </div>
     </div>
+    <div class="columns">
+      <div class="column is-offset-1 is-6">
+        <p>
+          <a href="https://go.hotmart.com/U5832596H"><img src="http://static.wixstatic.com/media/439b6b_35147ecc2ab74cd3b60207a22b346385.png_srb_p_728_90_75_22_0.50_1.20_0.00_png_srb" border="0" width="728" height="90" /></a>
+        </p>
+      </div>
 
-        <a href="https://go.hotmart.com/U5832596H"><img src="http://static.wixstatic.com/media/439b6b_35147ecc2ab74cd3b60207a22b346385.png_srb_p_728_90_75_22_0.50_1.20_0.00_png_srb" border="0" width="728" height="90" /></a>
     </body>
 </html>
