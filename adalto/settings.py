@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'adaltopicotti$blog_adalto',
-        'USER': 'adaltopicotti',
+        'USER': 'adaltopicotti$adaltopicotti',
         'PASSWORD': '!Shindemiro0',
         'HOST': 'adaltopicotti.mysql.pythonanywhere-services.com',
         'PORT': '',
