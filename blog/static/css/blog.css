@@ -1,205 +1,51 @@
-h1 a {
-    color: #FCA205;
-    font-family: 'Exo';
-}
-
 body {
   padding-left: 15px;
   background-color: #eee;
 }
 
-.page-header {
-  background-color:#3086D6;
-  margin-top: 5;
-  margin-right: 15px;
-  padding: 1px 1px 1px 10px;
-  border-radius: 20px;
+/* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active{
-  color: #ffffff;
-  text-decoration: none;
-
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-.content {
-  margin-left: 40px;
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Exo', cursive;
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
-.date {
-  float: right;
-  color: #828282;
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-.save {
-  float: right;
-}
-
-.post-form textarea, .post-form input {
-  width: 100%;
-}
-
-.top-menu, .top-menu:hover, .top-menu:visited {
-  color: #ffffff;
-  float: right;
-  font-size: 26pt;
-  margin-right: 20px;
-
-}
-
-.post {
-  margin-bottom: 70px;
-  margin-top: 70px;
-  background-color: #B0C4DE;
-  border-radius: 5px;
-}
-
-.post h1 a, .post h1 a:visited {
-  color: #000000;
-  margin-left: 15px;
-}
-
-.post a, .post p {
-  margin-left: 15px;
-  margin-right: 10px;
-}
-
-.comment {
-  margin: 20px 0px 20px 20px;
-}
-
-
-/* CSS PARA O MENU */
-/*Configurações Padrões*/
-ul.menu, .menu li, .menu a {
-  margin:0;
-  padding:0;
-  list-style:none;
-  text-decoration:none;
-}
-
-ul.menu ul {
-  position:absolute;
-  display:none;
-  box-shadow:3px 3px 2px #333;
-}
-
-/* Configurações nivel 1*/
-ul.menu {
-  float:left;
-  font-family:Verdana,
-  Geneva, sans-serif;
-  font-size:15px;
-  border-radius:5px;
-  padding:0 5px;
-}
-
-.menu li {
-  float:left;
-  width:auto;
-  position:relative;
-}
-
-.menu li a {
-  display:block;
-  padding:0 20px;
-  line-height:45px;
-  height:45px;
-  float:left;
-  transition:all 0.1s linear;
-}
-
-/* Configurações nivel 2*/
-.menu li:hover > ul.submenu-1 {
-  display:block;
-  top:45px;
-  left:0;
-  padding:5px;
-  width:200px;
-  border-radius:0 0 5px 5px;
-}
-.menu ul.submenu-1 a {
-  width:160px;
-  padding:0 20px;
-  border-radius:5px;
-}
-
-/* Configurações nivel 2*/
-.menu li:hover > ul.submenu-2 {
-  display:block;
-  top:0;
-  left:195px;
-  padding:5px;
-  width:200px;
-  border-radius: 0 5px 5px 5px;
-}
-
-.menu ul.submenu-2 a {
-  width:160px;
-  padding:0 20px;
-  border-radius:5px;
-}
-
-/* Configurações nivel 3*/
-.menu li:hover > ul.submenu-3 {
-  display:block;
-  top:0;
-  left:195px;
-  padding:5px;
-  width:200px;
-  border-radius: 0 5px 5px 5px;
-}
-.menu ul.submenu-3 a {  width:160px;
-  padding:0 20px;
-  border-radius:5px;
-}
-
-
-/*Configurações de cores*/
-
-/*nivel 1*/
-.menu {
-  background:#3086D6;
-}
-.menu a, .submenu-1 a, .submenu-2 a, .submenu-3 a {
-  color:#FFFFFF;
-}
-.menu li:hover > a {
-  background:#30A6F9;
-  color:#fff;
-}
-
-/*nivel 2 */
-.submenu-1{
-  background:#30A6F9;
-}
-
-.submenu-1 a {
-  color:#fff;
-}
-
-.submenu-1 li:hover > a {
-  background:#22BFF1;
-}
-
-/*nivel 3*/
-.submenu-2 {
-  background:#22bbF1;
-}
-
-.submenu-2 li:hover > a {
-  background:#ffffEE;
-}
-
-/*nivel 3*/
-.submenu-3 {
-  background:#333;
-}
-
-.submenu-3 li:hover > a {
-  background:#000;
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }
