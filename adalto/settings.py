@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'adaltopicotti$blog_adalto',
         'USER': 'adaltopicotti',
         'PASSWORD': '!Shindemiro0',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '',
     }
 }
