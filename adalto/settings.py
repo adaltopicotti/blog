@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'adaltopicotti$blog_adalto',
         'USER': 'adaltopicotti',
         'PASSWORD': '!Shindemiro0',
-        'HOST': 'adaltopicotti.mysql.pythonanywhere-services.com via TCP/IP',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
