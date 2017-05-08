@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'adalto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'adaltopicotti$blog_adalto',
-        'USER': 'adaltopicotti',
+        'NAME': 'blog_adalto',
+        'USER': 'root',
         'PASSWORD': '!Shindemiro0',
-        'HOST': 'adaltopicotti.mysql.pythonanywhere-services.com',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
