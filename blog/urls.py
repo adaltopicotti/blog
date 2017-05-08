@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^application/cpf/$', views_app.cpf, name='cpf'),
+    url(r'^application/cep/$', views_app.cep, name='cep'),
 
 ]

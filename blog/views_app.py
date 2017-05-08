@@ -6,12 +6,31 @@ from django.http import JsonResponse, HttpResponse
 
 
 
+cepInfo = """
+    CEP é a sigla de Código de Endereçamento Postal, criado e utilizado pelos Correios para facilitar o encaminhamento e a entrega das correspondências aos destinatários. O CEP é uma informação indispensável na correspondência, pois identifica todos os detalhes do endereço. No Brasil o número do CEP é formado por oito algarismos, que identificam o endereço do destinatário da correspondência, facilitando a sua entrega. O CEP pode estar relacionado a uma região, um bairro específico, ou até mesmo o prédio do destinatário da correspondência. Para facilitar a criação dos CEPs a Empresa Brasileira de Correios e Telégrafos dividiu o Brasil em 10 regiões postais. O Código de Endereçamento Postal ajuda na triagem, no encaminhamento e na distribuição de todas as correpondências ou encomendas. Cada número do código identifica todos os detalhes do endereço.
+"""
+
+cpfInfo = """
+    CPF é o cadastro da Receita Federal brasileira no qual devem estar todos os contribuintes (pessoas físicas brasileiras ou estrangeiras com negócios no Brasil).
+     O CPF armazena informações fornecidas pelo próprio contribuinte e por outros sistemas da Receita Federal.
+"""
+
 def cep(request):
-    key = 'e6cc0c8ac7fddca7d4a7bb45bcb2a813'
-    url = 'http://viacep.com.br/ws/87020230/json/'
-    r = requests.get(url)
-    cepJson = r.json()
-    return render(request, 'application/cpfNumber.html', {'r': cepJson})
+    if request.method == "POST":
+        cepNumber = request.POST['cepNumber']
+        if validateCEP(cepNumber) == True:
+            url = 'http://viacep.com.br/ws/' + cepNumber + '/json/'
+            result = requests.get(url)
+            cepJson = result.json()
+            return render(request, 'application/cep.html', {
+                'r': cepJson,
+                'cepInfo': cepInfo})
+        else:
+            return render(request, 'application/cep.html', {
+                'r': '*Insira um CEP válido!',
+                'cepInfo': cepInfo})
+    else:
+        return render(request, 'application/cep.html', {'cepInfo': cepInfo})
 
 
 
@@ -22,13 +41,32 @@ def cpf(request):
         cpfNumber = request.POST['cpfNumber']
         if validateCPF(cpfNumber) == True:
             url = "https://api.cpfcnpj.com.br/" + key + "/1/json/" + cpfNumber
-            r = requests.get(url)
-            cpfJson = r.json()
-            return render(request, 'application/cpf.html', {'r': cpfJson})
+            result = requests.get(url)
+            cpfJson = result.json()
+            return render(request, 'application/cpf.html', {
+                'r': cpfJson,
+                'cpfInfo': cpfInfo})
         else:
-            return render(request, 'application/cpf.html', {'r': '*Insira um CPF válido!'})
+            return render(request, 'application/cpf.html', {
+                'r': '*Insira um CPF válido!',
+                'cpfInfo': cpfInfo})
     else:
-        return render(request, 'application/cpf.html', {})
+        return render(request, 'application/cpf.html', {'cpfInfo': cpfInfo})
+
+
+# ------------ Validate --------------
+def validateCEP(cepNumber):
+    cepNumber_invalidos = [8*str(i) for i in range(7)]
+    if cepNumber in cepNumber_invalidos:
+        return False
+    if len( cepNumber ) < 8:
+        """ Verifica se o cpfNumber tem 11 digitos """
+        return False
+
+    if len( cepNumber ) > 8:
+        """ cpfNumber tem que ter 11 digitos """
+        return False
+    return True
 
 
 def validateCPF(cpfNumber):
