@@ -3,4 +3,4 @@ __pycache__
 venv_adalto
 db.sqlite3
 .DS_Store
-settings.py
+adalto/settings.py
