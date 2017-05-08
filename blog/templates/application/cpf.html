@@ -9,7 +9,15 @@
           <form method="POST" name="cpfForm" class="post-form">{% csrf_token %}
             <div class="field">
               <p class="control">
-                <input class="input" type="number"  placeholder="Digite o CPF">
+                <input class="input" type="number" name="cpfNumber" placeholder="Digite o CPF">
+                {% if r.nome %}
+                {% else %}
+                  {% if r.erro %}
+                    <p class="help is-danger">{{r.erro}}</p>
+                  {% else %}
+                    <p class="help is-danger">{{r}}</p>
+                  {% endif %}
+                {% endif %}
               </p>
             </div>
               <div class="field is-grouped">
@@ -18,25 +26,32 @@
               </p>
             </div>
           </form>
-
-
-          <div class="field">
-            <p class="title is-success">Nome
-            <label class="label is-success">{{r}}</label>
-          </p>
-          <p class="control has-icons-left has-icons-right">
-            <input class="input is-success" type="text" placeholder="Text input" value="bulma">
-          </p>
-          <p class="help is-success">This username is available</p>
+        </article>
+        </div>
+      </div>
+      {% if r.nome %}
+      <div class="columns">
+        <div class="column is-offset-3 is-6">
+          <article>
+            <div class="box">
+            <p class="control">
+              <label class="label is-success">Nome:</label>
+              <input class="input is-success" disabled type="text" value="{{r.nome}}">
+            </p>
+            <p class="control">
+              <label class="label is-success">CPF:</label>
+              <input class="input is-success" disabled type="text" value="{{r.cpf}}">
+            </p>
+            <p class="control">
+              <label class="label is-success">ID Consulta:</label>
+              <input class="input is-success" disabled type="text" value="{{r.consultaID}}">
+            </p>
+            <p class="help is-success">This username is available</p>
           </div>
         </article>
       </div>
-      
     </div>
+    {% endif %}
   </div>
-{% if r.nome %}
-<a>{{r.nome}}</a>
-{% else %}
-<a>{{r}}</a>
-{% endif %}
+
 {% endblock %}

@@ -19,16 +19,16 @@ def cpf(request):
 
     key = 'e6cc0c8ac7fddca7d4a7bb45bcb2a813'
     if request.method == "POST":
-        cpfNumber = (request.POST)
-        if validateCPF('05195990980') == True:
-            url = "https://api.cpfcnpj.com.br/" + key + "/1/json/05195990980"
+        cpfNumber = request.POST['cpfNumber']
+        if validateCPF(cpfNumber) == True:
+            url = "https://api.cpfcnpj.com.br/" + key + "/1/json/" + cpfNumber
             r = requests.get(url)
             cpfJson = r.json()
             return render(request, 'application/cpf.html', {'r': cpfJson})
         else:
-            return render(request, 'application/cpf.html', {'r': 'cpf invalido'})
+            return render(request, 'application/cpf.html', {'r': '*Insira um CPF válido!'})
     else:
-        return render(request, 'application/cpf.html', {'r': 'cpf invalido'})
+        return render(request, 'application/cpf.html', {})
 
 
 def validateCPF(cpfNumber):
