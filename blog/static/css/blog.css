@@ -1,7 +1,13 @@
 body {
-  
+
   background-color: #eee;
 
+}
+
+.adsense{
+
+  position: relative;
+  margin-left: 150px;
 }
 
 /* Dropdown Button */
