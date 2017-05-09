@@ -9,17 +9,17 @@
           <p class="subtitle">
             {% if post.published_date %}
             Publicado: {{ post.published_date }}
+            {% if user.is_authenticated %}
               <a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
               <a href="{% url 'post_remove' pk=post.pk %}">Remove</a>
+             {% endif %}
             </p>
             {% else %}
               Criado: {{ post.created_date }}
               <span></span>
-            {% if user.is_authenticated %}
               <a href="{% url 'post_publish' pk=post.pk %}">Publish</span></a>
               <a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
               <a href="{% url 'post_remove' pk=post.pk %}">Remove</a>
-            {% endif %}
             {% endif %}
             <p>{{ post.text|linebreaksbr }}</p>
           </article>
