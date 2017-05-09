@@ -27,6 +27,16 @@
     </div>
   </div>
   <hr>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- adalto-post_relative -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4456878218517382"
+         data-ad-slot="2071070758"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   {% if post.published_date %}
     <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
     {% for comment in post.comments.all %}
@@ -47,14 +57,5 @@
         <p>No comments here yet :(</p>
     {% endfor %}
     {% endif %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- adalto-post_relative -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-4456878218517382"
-         data-ad-slot="2071070758"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    
 {% endblock %}
