@@ -25,14 +25,14 @@ def cep(request):
             return render(request, 'application/cep.html', {
                 'r': cepJson,
                 'cepInfo': cepInfo,
-                'page_title': 'CPF'})
+                'page_title': 'CEP'})
         else:
             return render(request, 'application/cep.html', {
                 'r': '*Insira um CEP válido!',
                 'cepInfo': cepInfo,
-                'page_title': 'CPF'})
+                'page_title': 'CEP'})
     else:
-        return render(request, 'application/cep.html', {'cepInfo': cepInfo, 'page_title': 'CPF'})
+        return render(request, 'application/cep.html', {'cepInfo': cepInfo, 'page_title': 'CEP'})
 
 
 
@@ -48,14 +48,14 @@ def cpf(request):
             return render(request, 'application/cpf.html', {
                 'r': cpfJson,
                 'cpfInfo': cpfInfo,
-                'page_title': 'CEP'})
+                'page_title': 'CPF'})
         else:
             return render(request, 'application/cpf.html', {
                 'r': '*Insira um CPF válido!',
                 'cpfInfo': cpfInfo,
-                'page_title': 'CEP'})
+                'page_title': 'CPF'})
     else:
-        return render(request, 'application/cpf.html', {'cpfInfo': cpfInfo, 'page_title': 'CEP'})
+        return render(request, 'application/cpf.html', {'cpfInfo': cpfInfo, 'page_title': 'CPF'})
 
 
 # ------------ Validate --------------
