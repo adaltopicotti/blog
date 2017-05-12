@@ -148,7 +148,7 @@ def calc_coord(lat):
         lat_dec = -(lat[0] + dec)
     elif opt == 'opt2':
         lat_dec = (lat[0] + dec)
-    return str(lat_dec)
+    return repr(lat_dec)
 
 def calcLon(opt, loDeg, loMin, loSec):
 
