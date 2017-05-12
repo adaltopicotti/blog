@@ -126,10 +126,10 @@ def coordinate(request):
         lat = [request.POST['lat_deg'],request.POST['lat_min'], request.POST['lat_sec']]
         lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
         #if validateCPF(cpfNumber) == True:
-        lat_d = calc_coord(lat)
+        coord = calc_coord(lat)
         return render(request, 'application/coordinate.html', {
             'r': 'cpfJson',
-            'cpfInfo': lat_d,
+            'cpfInfo': coord[0] + " | " + coord[1] ,
             'page_title': 'CPF'})
 
     return render(request, 'application/coordinate.html', {
@@ -138,17 +138,20 @@ def coordinate(request):
         'page_title': 'CPF'})
 
 
-def calc_coord(lat):
+def calc_coord(lat, lon):
     opt = 'opt1'
     #lat = float(laDeg)
     #min = float(laMin)
     #sec = float(laSec)
-    dec = (((float(lat[2])/60) + float(lat[1]))/60)
+    lat_d = (((float(lat[2])/60) + float(lat[1]))/60)
+    lon_d = (((float(lon[2])/60) + float(lon[1]))/60)
     if opt == 'opt1':
-        lat_dec = -(float(lat[0]) + dec)
+        lat_dec = -(float(lat[0]) + lat_d)
+        lon_dec = -(float(lon[0]) + lon_d)
     elif opt == 'opt2':
-        lat_dec = (float(lat[0]) + dec)
-    return lat_dec
+        lat_dec = (float(lat[0]) + lat_d)
+        lon_dec = (float(lon[0]) + on_d)
+    return lat_dec , lon_dec
 
 def calcLon(opt, loDeg, loMin, loSec):
 
