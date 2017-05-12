@@ -129,7 +129,7 @@ def coordinate(request):
         lat_d = calc_coord(lat)
         return render(request, 'application/coordinate.html', {
             'r': 'cpfJson',
-            'cpfInfo': str(lat_d),
+            'cpfInfo': lat_d,
             'page_title': 'CPF'})
 
     return render(request, 'application/coordinate.html', {
@@ -148,7 +148,7 @@ def calc_coord(lat):
         lat_dec = -(lat[0] + dec)
     elif opt == 'opt2':
         lat_dec = (lat[0] + dec)
-    return lat_dec
+    return str(lat_dec)
 
 def calcLon(opt, loDeg, loMin, loSec):
 
