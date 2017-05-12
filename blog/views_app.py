@@ -29,7 +29,7 @@ def cep(request):
         else:
             return render(request, 'application/cep.html', {
                 'r': '*Insira um CEP válido!',
-                'cepInfo': cepInfo,
+                'cepInfo': cepInfo + " 1",
                 'page_title': 'CEP'})
     else:
         return render(request, 'application/cep.html', {
