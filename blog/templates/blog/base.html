@@ -91,7 +91,7 @@
             <ul class="menu-list">
               <li><a href="{% url 'cep' %}">Consulta de CEP</a></li>
               <li><a href="{% url 'cpf' %}">Consulta de CPF</a></li>
-              <li><a>Coordenadas</a></li>
+              <li><a href="{% url 'coordinate' %}">Coordenadas</a></li>
             </ul>
             {% if user.is_authenticated %}
             <p class="menu-label">

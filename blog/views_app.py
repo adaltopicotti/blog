@@ -32,8 +32,9 @@ def cep(request):
                 'cepInfo': cepInfo,
                 'page_title': 'CEP'})
     else:
-        return render(request, 'application/cep.html', {'cepInfo': cepInfo, 'page_title': 'CEP'})
-
+        return render(request, 'application/cep.html', {
+            'cepInfo': cepInfo,
+             'page_title': 'CEP'})
 
 
 def cpf(request):
@@ -118,3 +119,44 @@ def validateCPF(cpfNumber):
 
 
         return bool( cpfNumber == selfcpfNumber )
+
+
+def coordinate(request):
+    if request.method == "POST":
+        lat = [request.POST['lat_deg'],request.POST['lat_min'], request.POST['lat_sec']]
+        lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
+        #if validateCPF(cpfNumber) == True:
+        return render(request, 'application/coordinate.html', {
+            'r': 'cpfJson',
+            'cpfInfo': lat[0] + " - " + lat[1] + " - " + lat[2],
+            'page_title': 'CPF'})
+
+    return render(request, 'application/coordinate.html', {
+        'r': 'cpfJson',
+        'cpfInfo': 'cpfInfo',
+        'page_title': 'CPF'})
+
+
+def calc_coord(opt, lat, lon):
+
+    #lat = float(laDeg)
+    #min = float(laMin)
+    #sec = float(laSec)
+    dec = (((float(lat[2])/60) + float(lat[1]))/60)
+    if opt == 'opt1':
+        lat_dec = -(lat[0] + dec)
+    elif opt == 'opt2':
+        lat_dec = (lat[0] + dec)
+    return lat_dec
+
+def calcLon(opt, loDeg, loMin, loSec):
+
+    deg = float(loDeg)
+    min = float(loMin)
+    sec = float(loSec)
+    dec = (((sec/60) + min)/60)
+    if opt == 'opt1':
+        res = -(deg + dec)
+    elif opt == 'opt2':
+        res = (deg + dec)
+    return str(res)
