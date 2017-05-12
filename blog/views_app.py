@@ -128,8 +128,9 @@ def coordinate(request):
         #if validateCPF(cpfNumber) == True:
         coord = calc_coord(lat, lon)
         return render(request, 'application/coordinate.html', {
-            'r': 'cpfJson',
-            'cpfInfo': coord[0] + " | " + coord[1] ,
+            'lat': coord[0],
+            'lon': coord[1],
+            'cpfInfo': 'Info' ,
             'page_title': 'CPF'})
 
     return render(request, 'application/coordinate.html', {
