@@ -146,10 +146,10 @@ def calc_coord(opt, lat, lon):
     #sec = float(laSec)
     dec = (((float(lat[2])/60) + float(lat[1]))/60)
     if opt == 'opt1':
-        lat_dec = -(lat[0] + dec)
+        lat_dec = "-" + (lat[0] + dec)
     elif opt == 'opt2':
         lat_dec = (lat[0] + dec)
-    return str(lat_dec)
+    return lat_dec
 
 def calcLon(opt, loDeg, loMin, loSec):
 
