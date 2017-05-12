@@ -127,10 +127,10 @@ def coordinate(request):
         lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
         #if validateCPF(cpfNumber) == True:
         opt = 'opt1'
-        lat_dec = calc_coord(opt, lat, lon)
+        lat_d = calc_coord(opt, lat, lon)
         return render(request, 'application/coordinate.html', {
             'r': 'cpfJson',
-            'cpfInfo': lat_dec,
+            'cpfInfo': lat_d,
             'page_title': 'CPF'})
 
     return render(request, 'application/coordinate.html', {
