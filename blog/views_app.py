@@ -127,7 +127,7 @@ def coordinate(request):
         lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
         #if validateCPF(cpfNumber) == True:
         coord = calc_coord(lat, lon)
-        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ coord[0] +','+ coord[1] +'&key=AIzaSyA_3wK_DfiwW94-1dg352-I8Zs__FGYrDo'
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ repr(coord[0]) +','+ repr(coord[1]) +'&key=AIzaSyA_3wK_DfiwW94-1dg352-I8Zs__FGYrDo'
         result = requests.get(url)
         geoJson = result.json()
         return render(request, 'application/coordinate.html', {
