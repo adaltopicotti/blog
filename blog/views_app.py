@@ -146,7 +146,7 @@ def coordinate(request):
             'lon': coord[1],
             'geoInfo': geoJson['results'][0]['formatted_address'],
             'page_title': 'Geo',
-            'coordInfo': coordInfo
+            'coordInfo': coordInfo,
             'latInfo': coordInfo,
             'lonInfo': coordInfo})
 
