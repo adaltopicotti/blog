@@ -127,16 +127,19 @@ def coordinate(request):
         lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
         #if validateCPF(cpfNumber) == True:
         coord = calc_coord(lat, lon)
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ coord[0] +','+ coord[1] +'&key=AIzaSyA_3wK_DfiwW94-1dg352-I8Zs__FGYrDo'
+        result = requests.get(url)
+        geoJson = result.json()
         return render(request, 'application/coordinate.html', {
             'lat': coord[0],
             'lon': coord[1],
-            'cpfInfo': 'Info' ,
-            'page_title': 'CPF'})
+            'geoInfo': geoJson ,
+            'page_title': 'Geo'})
 
     return render(request, 'application/coordinate.html', {
         'r': 'cpfJson',
-        'cpfInfo': 'cpfInfo',
-        'page_title': 'CPF'})
+        'geoInfo': 'geoInfo',
+        'page_title': 'Geo'})
 
 
 def calc_coord(lat, lon):
