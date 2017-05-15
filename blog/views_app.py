@@ -133,7 +133,7 @@ def coordinate(request):
         return render(request, 'application/coordinate.html', {
             'lat': coord[0],
             'lon': coord[1],
-            'geoInfo': geoJson.[0].formatted_address,
+            'geoInfo': geoJson.results.[0].formatted_address,
             'page_title': 'Geo'})
 
     return render(request, 'application/coordinate.html', {
