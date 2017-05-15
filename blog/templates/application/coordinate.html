@@ -34,6 +34,7 @@
                 </tbody>
                 </table>
                 </div>
+                {% if geoInfo %}
                 <div class="column is-12">
                 <table class="table">
                 <thead>
@@ -45,7 +46,6 @@
                   <tr>
                     <td><a>Latitude</a></td>
                     <td>{{lat}}</td>
-                    <td></td>
                     </tr>
                   <tr>
                     <td><a>Longitude</a></td>
@@ -58,6 +58,7 @@
                 </tbody>
                 </table>
               </div>
+              {% endif %}
             </div>
               <div class="field is-grouped">
               <p class="control">
@@ -67,26 +68,6 @@
           </form>
         </article>
         </div>
-      </div>
-      {% if r.nome %}
-      <div class="columns">
-        <div class="column is-offset-3 is-6">
-          <article>
-            <div class="box">
-            <p class="control">
-              <p><label class="label is-success">Nome</label></p>
-              <input class="input is-success" disabled type="text" value="{{r.nome}}">
-            </p><br>
-            <p class="control">
-              <p><label class="label is-success">CPF</label></p>
-              <input class="input is-success" disabled type="text" value="{{r.cpf}}">
-            </p><br>
-            <p class="control">
-              <p><label class="label is-success">ID Consulta</label></p>
-              <input class="input is-success" disabled type="text" value="{{r.consultaID}}">
-            </p>
-          </div>
-        </article>
       </div>
     </div>
     {% endif %}
@@ -105,6 +86,6 @@
       <!-- GOOGLE ADSENSE -->
     </div>
   </div>
-  </div>
+
 
 {% endblock %}
