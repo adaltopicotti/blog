@@ -15,6 +15,14 @@ cpfInfo = """
      O CPF armazena informações fornecidas pelo próprio contribuinte e por outros sistemas da Receita Federal.
 """
 
+coordInfo = """
+São linhas imaginárias pelas quais a Terra foi “cortada”, essas linhas são os paralelos e meridianos, através dos paralelos e meridianos é possível estabelecer localizações precisas em qualquer ponto do planeta. 
+• Latitude: É a distância medida em graus de um determinado ponto do planeta entre o arco do meridiano e a linha do equador. 
+
+• Longitude: É a localização de um ponto da superfície medida em graus, nos paralelos e no meridiano de Greenwich.
+
+"""
+
 def cep(request):
     if request.method == "POST":
         cepNumber = request.POST['cepNumber']
