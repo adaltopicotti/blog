@@ -147,15 +147,15 @@ def coordinate(request):
             'geoInfo': geoJson['results'][0]['formatted_address'],
             'page_title': 'Geo',
             'coordInfo': coordInfo,
-            'latInfo': coordInfo,
-            'lonInfo': coordInfo})
+            'latInfo': latInfo,
+            'lonInfo': lonInfo})
 
     return render(request, 'application/coordinate.html', {
         'r': 'cpfJson',
         'page_title': 'Geo',
         'coordInfo': coordInfo,
-        'latInfo': coordInfo,
-        'lonInfo': coordInfo})
+        'latInfo': latInfo,
+        'lonInfo': lonInfo})
 
 
 def calc_coord(lat, lon):
