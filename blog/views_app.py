@@ -142,11 +142,13 @@ def coordinate(request):
             'lat': coord[0],
             'lon': coord[1],
             'geoInfo': geoJson['results'][0]['formatted_address'],
-            'page_title': 'Geo'})
+            'page_title': 'Geo',
+            'coordInfo': coordInfo})
 
     return render(request, 'application/coordinate.html', {
         'r': 'cpfJson',
-        'page_title': 'Geo'})
+        'page_title': 'Geo',
+        'coordInfo': coordInfo})
 
 
 def calc_coord(lat, lon):
