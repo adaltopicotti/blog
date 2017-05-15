@@ -138,7 +138,6 @@ def coordinate(request):
 
     return render(request, 'application/coordinate.html', {
         'r': 'cpfJson',
-        'geoInfo': NULL,
         'page_title': 'Geo'})
 
 
