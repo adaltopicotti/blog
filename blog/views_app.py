@@ -17,10 +17,13 @@ cpfInfo = """
 
 coordInfo = """
 São linhas imaginárias pelas quais a Terra foi “cortada”, essas linhas são os paralelos e meridianos, através dos paralelos e meridianos é possível estabelecer localizações precisas em qualquer ponto do planeta. 
+"""
+latInfo = """
 • Latitude: É a distância medida em graus de um determinado ponto do planeta entre o arco do meridiano e a linha do equador. 
+"""
 
+lonInfo = """
 • Longitude: É a localização de um ponto da superfície medida em graus, nos paralelos e no meridiano de Greenwich.
-
 """
 
 def cep(request):
@@ -143,12 +146,16 @@ def coordinate(request):
             'lon': coord[1],
             'geoInfo': geoJson['results'][0]['formatted_address'],
             'page_title': 'Geo',
-            'coordInfo': coordInfo})
+            'coordInfo': coordInfo
+            'latInfo': coordInfo,
+            'lonInfo': coordInfo})
 
     return render(request, 'application/coordinate.html', {
         'r': 'cpfJson',
         'page_title': 'Geo',
-        'coordInfo': coordInfo})
+        'coordInfo': coordInfo,
+        'latInfo': coordInfo,
+        'lonInfo': coordInfo})
 
 
 def calc_coord(lat, lon):
