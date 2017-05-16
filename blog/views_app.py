@@ -16,10 +16,10 @@ cpfInfo = """
 """
 
 coordInfo = """
-São linhas imaginárias pelas quais a Terra foi “cortada”, essas linhas são os paralelos e meridianos, através dos paralelos e meridianos é possível estabelecer localizações precisas em qualquer ponto do planeta. 
+São linhas imaginárias pelas quais a Terra foi “cortada”, essas linhas são os paralelos e meridianos, através dos paralelos e meridianos é possível estabelecer localizações precisas em qualquer ponto do planeta.
 """
 latInfo = """
-• Latitude: É a distância medida em graus de um determinado ponto do planeta entre o arco do meridiano e a linha do equador. 
+• Latitude: É a distância medida em graus de um determinado ponto do planeta entre o arco do meridiano e a linha do equador.
 """
 
 lonInfo = """
@@ -109,19 +109,13 @@ def validateCPF(cpfNumber):
         if len( cpfNumber ) < 11:
             """ Verifica se o cpfNumber tem 11 digitos """
             return False
-
         if len( cpfNumber ) > 11:
             """ cpfNumber tem que ter 11 digitos """
             return False
-
         selfcpfNumber = [int( x ) for x in cpfNumber]
-
         cpfNumber = selfcpfNumber[:9]
-
         while len( cpfNumber ) < 11:
-
             r =  sum( [( len( cpfNumber )+1-i )*v for i, v in [( x, cpfNumber[x] ) for x in range( len( cpfNumber ) )]] ) % 11
-
             if r > 1:
                 f = 11 - r
             else:
@@ -137,21 +131,28 @@ def coordinate(request):
         lat = [request.POST['lat_deg'],request.POST['lat_min'], request.POST['lat_sec']]
         lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
         #if validateCPF(cpfNumber) == True:
-        coord = calc_coord(lat, lon)
-        url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ repr(coord[0]) +','+ repr(coord[1]) +'&key=AIzaSyA_3wK_DfiwW94-1dg352-I8Zs__FGYrDo'
-        result = requests.get(url)
-        geoJson = result.json()
-        return render(request, 'application/coordinate.html', {
-            'lat': coord[0],
-            'lon': coord[1],
-            'geoInfo': geoJson['results'][0]['formatted_address'],
-            'page_title': 'Geo',
-            'coordInfo': coordInfo,
-            'latInfo': latInfo,
-            'lonInfo': lonInfo})
+        try:
+            coord = calc_coord(lat, lon)
+            url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ repr(coord[0]) +','+ repr(coord[1]) +'&key=AIzaSyA_3wK_DfiwW94-1dg352-I8Zs__FGYrDo'
+            result = requests.get(url)
+            geoJson = result.json()
+            return render(request, 'application/coordinate.html', {
+                'lat': coord[0],
+                'lon': coord[1],
+                'geoInfo': geoJson['results'][0]['formatted_address'],
+                'page_title': 'Geo',
+                'coordInfo': coordInfo,
+                'latInfo': latInfo,
+                'lonInfo': lonInfo})
+        except:
+            return render(request, 'application/coordinate.html', {
+                'r': '* Insira coordenadas válidas! Utilize apenas números e pontos.',
+                'page_title': 'Geo',
+                'coordInfo': coordInfo,
+                'latInfo': latInfo,
+                'lonInfo': lonInfo})
 
     return render(request, 'application/coordinate.html', {
-        'r': 'cpfJson',
         'page_title': 'Geo',
         'coordInfo': coordInfo,
         'latInfo': latInfo,
@@ -173,14 +174,8 @@ def calc_coord(lat, lon):
         lon_dec = (float(lon[0]) + on_d)
     return lat_dec , lon_dec
 
-def calcLon(opt, loDeg, loMin, loSec):
 
-    deg = float(loDeg)
-    min = float(loMin)
-    sec = float(loSec)
-    dec = (((sec/60) + min)/60)
-    if opt == 'opt1':
-        res = -(deg + dec)
-    elif opt == 'opt2':
-        res = (deg + dec)
-    return str(res)
+def validaCoord(lat, lon):
+
+
+    return True
