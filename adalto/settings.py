@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_)(5!i3fxo%(71r+26yiymxuri_*^-%onfnqfejr9zf!mpa32z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'adalto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog_adalto',
-        'USER': 'root',
+        'NAME': 'adaltopicotti$blog_adalto',
+        'USER': 'adaltopicotti',
         'PASSWORD': '!Shindemiro0',
-        'HOST': 'localhost',
+        'HOST': 'adaltopicotti.mysql.pythonanywhere-services.com',
         'PORT': '',
     }
 }
