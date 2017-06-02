@@ -21,7 +21,7 @@
               <a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
               <a href="{% url 'post_remove' pk=post.pk %}">Remove</a>
             {% endif %}
-            <p>{{ post.text }}</p>
+            <p>{{ post.text|safe }}</p>
           </article>
       </div>
     </div>
