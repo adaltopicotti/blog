@@ -10,7 +10,7 @@
           <p class="subtitle">Publicado: {{post.published_date}}</p>
           <div class="content">
             <!-- Content -->
-            <p>{{post.text|truncatechars:200|safe}}</p>
+            <p>{{post.text|truncatechars:300|safe}}</p>
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
             </div>
         </article>
