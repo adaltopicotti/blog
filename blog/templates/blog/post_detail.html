@@ -26,18 +26,18 @@
             <div>
               <table>
                 <tr>
-                  <td>John</td>
-                  <td>Djj</td>
-                </tr>
-                <tr>
-                  <td>Jane</td>
-                  <td>Doe</td>
+                  <td>
+                    <img src="http://westchasedistrictfarmersmarket.com/wp-content/uploads/Facebook-Icon.png" width="65px" height="65px"/>
+                    {% post_to_facebook '#'  "Compartilhe no Facebook!" %}
+                  </td>
+                  <td>
+                    <img src="https://www.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" width="65px" height="65px"/>
+                    {% post_to_linkedin object.title '#' 'Compartilhe no LinkedIn!' %}
+                  </td>
                 </tr>
               </table>
-              <img src="http://westchasedistrictfarmersmarket.com/wp-content/uploads/Facebook-Icon.png" width="65px" height="65px"/>
-              {% post_to_facebook '#'  "Compartilhe no Facebook!" %}
-              <img src="https://www.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png" width="65px" height="65px"/>
-              {% post_to_linkedin object.title '#' 'Compartilhe no LinkedIn!' %}
+              
+              
             </div>
           </article>
       </div>
