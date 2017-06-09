@@ -103,21 +103,16 @@
               Publicações Recentes
             </p>
             <ul class="menu-list">
+			<div class="tile is-ancestor">
 				<div class="tile is-parent">
 					<article class="tile is-child ">
 						{% for recent_post in recent_posts %}
-							<li><p><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></p></li>
+							<li><p class=""><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></p></li>
 						{% endfor %}
 					</article>
 				</div>
-            </ul>
-			
-				<div class="tile is-parent">
-					<article class="tile is-child ">
-					  <
-					</article>
 				</div>
-			
+            </ul>
             {% if user.is_authenticated %}
             <p class="menu-label">
               Administration
