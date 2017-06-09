@@ -25,6 +25,7 @@ latInfo = """
 lonInfo = """
 • Longitude: É a localização de um ponto da superfície medida em graus, nos paralelos e no meridiano de Greenwich.
 """
+recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
 
 def cep(request):
     if request.method == "POST":
@@ -36,7 +37,7 @@ def cep(request):
             return render(request, 'application/cep.html', {
                 'r': cepJson,
                 'cepInfo': cepInfo,
-                'page_title': 'CEP'})
+                'page_title': 'CEP', 'recent_posts': recent_post})
         else:
             return render(request, 'application/cep.html', {
                 'r': '*Insira um CEP válido!',
