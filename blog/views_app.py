@@ -43,11 +43,11 @@ def cep(request):
             return render(request, 'application/cep.html', {
                 'r': '*Insira um CEP válido!',
                 'cepInfo': cepInfo + " 1",
-                'page_title': 'CEP'})
+                'page_title': 'CEP', 'recent_posts': recent_post})
     else:
         return render(request, 'application/cep.html', {
             'cepInfo': cepInfo,
-             'page_title': 'CEP'})
+             'page_title': 'CEP', 'recent_posts': recent_post})
 
 
 def cpf(request):
