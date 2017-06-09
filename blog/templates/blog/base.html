@@ -102,7 +102,7 @@
 			{% for recent_post in recent_posts %}
 				<div class="tile is-parent">
 					<article class="tile is-child ">
-					  <p class="title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></p>
+					  <p class="title"><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></p>
 					  <p class="subtitle">Publicado: {{post.published_date}}</p>
 					</article>
 				</div>
