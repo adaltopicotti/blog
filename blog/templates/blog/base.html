@@ -104,9 +104,16 @@
             </p>
             <ul class="menu-list">
 				{% for recent_post in recent_posts %}
-					<li><<a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></li>
+					<li><p><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></p></li>
 				{% endfor %}
             </ul>
+			
+				<div class="tile is-parent">
+					<article class="tile is-child ">
+					  <
+					</article>
+				</div>
+			
             {% if user.is_authenticated %}
             <p class="menu-label">
               Administration
