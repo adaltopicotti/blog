@@ -5,9 +5,13 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm
 # Create your views here.
 
+def recent_post():
+    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+    return recent_post
+
 def post_list(request):
     post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+    recent_post = recent_post()
     return render(request, 'blog/post_list.html', {'posts': post, 'recent_posts': recent_post})
 
 def post_detail(request, pk):
