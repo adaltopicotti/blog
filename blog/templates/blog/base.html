@@ -107,7 +107,7 @@
 				<div class="tile is-parent">
 					<article class="tile is-child ">
 						{% for recent_post in recent_posts %}
-							<li><p class=""><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></p></li>
+							<li><p class="title is-5"><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></p></li>
 						{% endfor %}
 					</article>
 				</div>
