@@ -5,18 +5,17 @@ from .models import Post, Comment
 from .forms import PostForm, CommentForm
 # Create your views here.
 
-def recent_post():
-    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
-    return recent_post
+    
 
 def post_list(request):
     post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    recent_post = recent_post()
+    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     return render(request, 'blog/post_list.html', {'posts': post, 'recent_posts': recent_post})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post, 'page_title': post.title})
+    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+    return render(request, 'blog/post_detail.html', {'post': post, 'page_title': post.title, 'recent_posts': recent_post})
 
 @login_required
 def post_new(request):
@@ -66,6 +65,7 @@ def post_remove(request, pk):
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -75,7 +75,7 @@ def add_comment_to_post(request, pk):
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
-    return render(request, 'blog/add_comment_to_post.html', {'form': form})
+    return render(request, 'blog/add_comment_to_post.html', {'form': form, 'recent_posts': recent_post})
 
 @login_required
 def comment_approve(request, pk):
