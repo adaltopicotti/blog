@@ -62,14 +62,14 @@ def cpf(request):
             return render(request, 'application/cpf.html', {
                 'r': cpfJson,
                 'cpfInfo': cpfInfo,
-                'page_title': 'CPF'})
+                'page_title': 'CPF', 'recent_posts': recent_post})
         else:
             return render(request, 'application/cpf.html', {
                 'r': '*Insira um CPF válido!',
                 'cpfInfo': cpfInfo,
-                'page_title': 'CPF'})
+                'page_title': 'CPF', 'recent_posts': recent_post})
     else:
-        return render(request, 'application/cpf.html', {'cpfInfo': cpfInfo, 'page_title': 'CPF'})
+        return render(request, 'application/cpf.html', {'cpfInfo': cpfInfo, 'page_title': 'CPF', 'recent_posts': recent_post})
 
 
 # ------------ Validate --------------
@@ -145,20 +145,23 @@ def coordinate(request):
                 'page_title': 'Geo',
                 'coordInfo': coordInfo,
                 'latInfo': latInfo,
-                'lonInfo': lonInfo})
+                'lonInfo': lonInfo, 
+                'recent_posts': recent_post})
         except:
             return render(request, 'application/coordinate.html', {
                 'r': '* Insira coordenadas válidas! Utilize apenas números e pontos.',
                 'page_title': 'Geo',
                 'coordInfo': coordInfo,
                 'latInfo': latInfo,
-                'lonInfo': lonInfo})
+                'lonInfo': lonInfo,
+                'recent_posts': recent_post})
 
     return render(request, 'application/coordinate.html', {
         'page_title': 'Geo',
         'coordInfo': coordInfo,
         'latInfo': latInfo,
-        'lonInfo': lonInfo})
+        'lonInfo': lonInfo,
+        'recent_posts': recent_post})
 
 
 def calc_coord(lat, lon):
