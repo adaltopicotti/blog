@@ -65,7 +65,7 @@ def post_remove(request, pk):
 
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
