@@ -99,12 +99,14 @@
               <li><a href="{% url 'cpf' %}">Consulta de CPF</a></li>
               <li><a href="{% url 'coordinate' %}">Coordenadas</a></li>
             </ul>
-			<div class="tile is-parent">
-				<article class="tile is-child ">
-				  <p class="title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></p>
-				  <p class="subtitle">Publicado: {{post.published_date}}</p>
-				</article>
-			</div>
+			{% for recent_post in recent_posts %}
+				<div class="tile is-parent">
+					<article class="tile is-child ">
+					  <p class="title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></p>
+					  <p class="subtitle">Publicado: {{post.published_date}}</p>
+					</article>
+				</div>
+			{% endfor %}
             {% if user.is_authenticated %}
             <p class="menu-label">
               Administration
