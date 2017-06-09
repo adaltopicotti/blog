@@ -82,7 +82,7 @@
         </div>
       </div>
       <!-- Menu begin -->
-      <div class="column is-2">
+      <div class="column is-3">
         <div class="box">
           <aside class="menu">
             <p class="menu-label">
@@ -103,15 +103,9 @@
               Publicações Recentes
             </p>
             <ul class="menu-list">
-			<div class="tile is-ancestor">
-				<div class="tile is-parent">
-					<article class="tile is-child ">
-						{% for recent_post in recent_posts %}
-							<li><p class="title is-5 is-primary"><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></p></li>
-						{% endfor %}
-					</article>
-				</div>
-				</div>
+				{% for recent_post in recent_posts %}
+					<li><a href="{% url 'post_detail' pk=recent_post.pk %}">{{recent_post.title}}</a></li>
+				{% endfor %}
             </ul>
             {% if user.is_authenticated %}
             <p class="menu-label">
