@@ -26,9 +26,10 @@ latInfo = """
 lonInfo = """
 • Longitude: É a localização de um ponto da superfície medida em graus, nos paralelos e no meridiano de Greenwich.
 """
-recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
+
 
 def cep(request):
+    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     if request.method == "POST":
         cepNumber = request.POST['cepNumber']
         if validateCEP(cepNumber) == True:
@@ -51,7 +52,7 @@ def cep(request):
 
 
 def cpf(request):
-
+    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     key = 'e6cc0c8ac7fddca7d4a7bb45bcb2a813'
     if request.method == "POST":
         cpfNumber = request.POST['cpfNumber']
@@ -129,6 +130,7 @@ def validateCPF(cpfNumber):
 
 
 def coordinate(request):
+    recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     if request.method == "POST":
         lat = [request.POST['lat_deg'],request.POST['lat_min'], request.POST['lat_sec']]
         lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
