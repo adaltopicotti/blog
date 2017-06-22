@@ -186,3 +186,40 @@ def validaCoord(lat, lon):
 
 
     return True
+
+
+def weather(request):
+    weather = get_wheater('-23,4252777777777','-51,93861111111111')
+    icon = manage_icon(int(weather['rain']))
+    today = date.today()
+    return render(request, 'pdc/weather.html', {'weather': weather, 'icon': icon, 'today': today})
+
+def get_wheater(lat,lon):
+    key = 'fab2e031061742d03b32b8ee6da17203'
+    url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + key
+    result = requests.get(url)
+    weather = result.json()
+    temp = round(weather['main']['temp'] - 273.15,2)
+    rain = 0
+    clouds = weather['clouds']['all']
+    humidity = weather['main']['humidity']
+    wind = round(weather['wind']['speed'] * 3.599997)
+    result = {
+        "temp":temp,
+        "rain":rain,
+        "humidity":humidity,
+        "clouds":clouds,
+        "wind":wind}
+    return result
+
+
+def manage_icon(rain):
+    if rain == 0:
+        icon = '1'
+    elif (rain <= 15) and (rain > 0):
+        icon = '2'
+    elif (rain <= 45) and (rain > 0):
+        icon = '4'
+    else:
+        icon = '1'
+    return icon
