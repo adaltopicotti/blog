@@ -206,12 +206,14 @@ def get_wheater(lat,lon):
     clouds = weather['clouds']['all']
     humidity = weather['main']['humidity']
     wind = round(weather['wind']['speed'] * 3.599997)
+    icon = manage_icon(rain)
     result = {
         "temp":temp,
         "rain":rain,
         "humidity":humidity,
         "clouds":clouds,
-        "wind":wind}
+        "wind":wind,
+        "icon":icon}
     return result
 
 
