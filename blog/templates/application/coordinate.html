@@ -35,8 +35,11 @@
                 </table>
                 <p class="help is-danger">{{r}}</p>
                 </div>
+                <div class="field is-grouped">
+                <p class="control">
+                  <button type="submit" class="button is-primary">Consultar</button>
+                </p>
                 {% if geoInfo %}
-              {% include 'application/weather_widget.html' %}
                 <div class="column is-12">
                 <table class="table">
                 <thead>
@@ -60,14 +63,9 @@
                 </tbody>
                 </table>
               </div>
-              
+                            {% include 'application/weather_widget.html' %}
               {% endif %}
-            </div>
-              <div class="field is-grouped">
-              <p class="control">
-                <button type="submit" class="button is-primary">Consultar</button>
-              </p>
-                 
+            </div>                 
             </div>
           </form>
           <div class="box">
