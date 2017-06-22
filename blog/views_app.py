@@ -135,6 +135,7 @@ def coordinate(request):
         lat = [request.POST['lat_deg'],request.POST['lat_min'], request.POST['lat_sec']]
         lon = [request.POST['lon_deg'],request.POST['lon_min'], request.POST['lon_sec']]
         #if validateCPF(cpfNumber) == True:
+        weather = get_wheater('-21.00','-51.3')
         try:
             coord = calc_coord(lat, lon)
             url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+ repr(coord[0]) +','+ repr(coord[1]) +'&key=AIzaSyA_3wK_DfiwW94-1dg352-I8Zs__FGYrDo'
