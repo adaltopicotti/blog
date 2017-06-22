@@ -149,6 +149,7 @@ def coordinate(request):
                 'coordInfo': coordInfo,
                 'latInfo': latInfo,
                 'lonInfo': lonInfo, 
+                'weather': weather,
                 'recent_posts': recent_post})
         except:
             return render(request, 'application/coordinate.html', {
