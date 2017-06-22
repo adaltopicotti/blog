@@ -208,14 +208,16 @@ def get_wheater(lat,lon):
     wind = round(weather['wind']['speed'] * 3.599997)
     icon = manage_icon(rain)
     today = date.today()
+    city = weather['name']
     result = {
         "temp":temp,
         "rain":rain,
         "humidity":humidity,
         "clouds":clouds,
         "wind":wind,
-        "icon":icon
-        "today":today}
+        "icon":icon,
+        "today":today,
+        "city": city}
     return result
 
 
