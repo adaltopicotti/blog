@@ -61,12 +61,15 @@
                     <td><a>Consulta em</a></td>
                   <td>{{weather.today}}</td>
                   </tr>
+                  <tr>
+                     {% include 'application/weather_widget.html' %}
+                  </tr>
                 </tbody>
                 </table>
               </div>
               {% endif %}              
             </div>
-                  {% include 'application/weather_widget.html' %}
+                 
             </div> 
 
             </div>
