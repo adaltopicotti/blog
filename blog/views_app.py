@@ -216,8 +216,7 @@ def get_wheater(lat,lon):
         "clouds":clouds,
         "wind":wind,
         "icon":icon,
-        "today":today,
-        "city": city}
+        "today":today}
     return result
 
 
