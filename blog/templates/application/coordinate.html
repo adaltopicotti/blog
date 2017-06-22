@@ -33,10 +33,11 @@
                   </tr>
                 </tbody>
                 </table>
-                {% include 'application/weather_widget.html' %}
                 <p class="help is-danger">{{r}}</p>
                 </div>
-                
+                <div class="column is-4">
+                  {% include 'application/weather_widget.html' %}
+                </div>
                 {% if geoInfo %}
                 <div class="column is-12">
                 <table class="table">
