@@ -1,104 +1,101 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-  <div class="box">
-    <div class="columns">
-      <div class="column is-12">
-        <article class="tile is-child ">
-          <p class="title"><a>Coordenadas</a></p>
-          <form method="POST" name="coordForm" class="post-form">{% csrf_token %}
-            <div class="field">
-              <div class="column is-7">
-                <table class="table">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th><abbr title="Played">Deg (º)</abbr></th>
-                    <th><abbr title="Played">Min (')</abbr></th>
-                    <th><abbr title="Played">Sec (")</abbr></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><p><strong>Latitude</strong></p></td>
-                    <td><input class="input" width="3" maxlength="2" autofocus name="lat_deg"></td>
-                    <td><input class="input" maxlength="2" autofocus name="lat_min"></td>
-                    <td><input class="input" maxlength="5" autofocus name="lat_sec"></td>
-                  </tr>
-                  <tr>
-                    <td><p><strong>Longitude</strong></p></td>
-                    <td><input class="input" maxlength="2" autofocus name="lon_deg"></td>
-                    <td><input class="input" maxlength="2" autofocus name="lon_min"></td>
-                    <td><input class="input" maxlength="5" autofocus name="lon_sec"></td>
-                  </tr>
-                </tbody>
-                </table>
-                <p class="help is-danger">{{r}}</p>
-                                <p class="control">
-                  <button type="submit" class="button is-primary">Consultar</button>
-                </p>
-                </div>
-                <div class="field is-grouped">
-                {% if geoInfo %}
-                <div class="column is-9">
-                <table class="table is-bordered">
-                <thead>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a>Latitude</a></td>
-                    <td>{{lat}}</td>
-                    </tr>
-                  <tr>
-                    <td><a>Longitude</a></td>
-                    <td>{{lon}}</td>
-                  </tr>
-                  <tr>
-                    <td><a>Endereço</a></td>
-                    <td>{{geoInfo}}</td>
-                  </tr>
-                  <tr>
-                    <td><a>Consulta em</a></td>
-                  <td>{{weather.today}}</td>
-                  </tr>
-                  <tr>
-                    <td><a>Clima</a></td>
-                    <td>
-                     {% include 'application/weather_widget.html' %}
-                    </td>
-                  </tr>
-                </tbody>
-                </table>
-              </div>
-              {% endif %}              
-            </div>     
-            </div> 
-            </div>
-            </div>
-          </form>
-          <div class="box">
-            <div class="column is-offset-4">
-          <p class="subtitle is-primary is-centered"> O que é Coordenadas?</p>
-            </div>
-          <p>
-            {{coordInfo}}
-          </p>
-          <p>
-            {{latInfo}}
-          </p>
-          <p>
-            {{lonInfo}}
-          </p>
-          </div>
-        </article>
-        </div>
-      </div>
-    </div>
-    <div class="columns">
-      <div>
-      <!-- GOOGLE ADSENSE -->
-    </div>
-  </div>
-
+<div class="box">
+	<div class="columns">
+		<div class="column is-12">
+			<article class="tile is-child ">
+				<p class="title"><a>Coordenadas</a></p>
+				<form method="POST" name="coordForm" class="post-form">{% csrf_token %}
+					<div class="field">
+					<div class="column is-7">
+						<table class="table">
+						<thead>
+						  <tr>
+							<th></th>
+							<th><abbr title="Played">Deg (º)</abbr></th>
+							<th><abbr title="Played">Min (')</abbr></th>
+							<th><abbr title="Played">Sec (")</abbr></th>
+						  </tr>
+						</thead>
+						<tbody>
+					  <tr>
+						<td><p><strong>Latitude</strong></p></td>
+						<td><input class="input" width="3" maxlength="2" autofocus name="lat_deg"></td>
+						<td><input class="input" maxlength="2" autofocus name="lat_min"></td>
+						<td><input class="input" maxlength="5" autofocus name="lat_sec"></td>
+					  </tr>
+					  <tr>
+						<td><p><strong>Longitude</strong></p></td>
+						<td><input class="input" maxlength="2" autofocus name="lon_deg"></td>
+						<td><input class="input" maxlength="2" autofocus name="lon_min"></td>
+						<td><input class="input" maxlength="5" autofocus name="lon_sec"></td>
+					  </tr>
+					</tbody>
+					</table>
+						<p class="help is-danger">{{r}}</p>
+						<p class="control">
+						<button type="submit" class="button is-primary">Consultar</button>
+					</p>
+					</div>
+					<div class="field is-grouped">
+						{% if geoInfo %}
+						<div class="column is-9">
+							<table class="table is-bordered">
+						<thead>
+						</thead>
+						<tbody>
+						  <tr>
+							<td><a>Latitude</a></td>
+							<td>{{lat}}</td>
+							</tr>
+						  <tr>
+							<td><a>Longitude</a></td>
+							<td>{{lon}}</td>
+						  </tr>
+						  <tr>
+							<td><a>Endereço</a></td>
+							<td>{{geoInfo}}</td>
+						  </tr>
+						  <tr>
+							<td><a>Consulta em</a></td>
+						  <td>{{weather.today}}</td>
+						  </tr>
+						  <tr>
+							<td><a>Clima</a></td>
+							<td>
+							 {% include 'application/weather_widget.html' %}
+							</td>
+						  </tr>
+						</tbody>
+						</table>
+						</div>
+						{% endif %}              
+					</div>     
+				</div> 
+				</form>
+				<div class="box">
+					<div class="column is-offset-4">
+						<p class="subtitle is-primary is-centered"> O que é Coordenadas?</p>
+					</div>
+					<p>
+						{{coordInfo}}
+					</p>
+					<p>
+						{{latInfo}}
+					</p>
+					<p>
+						{{lonInfo}}
+					</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+<div class="columns">
+<div>
+  <!-- GOOGLE ADSENSE -->
+</div>
+</div>
 
 {% endblock %}
