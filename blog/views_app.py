@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from datetime import *
 import json, requests
 from .models import Post, Comment
 from django.http import JsonResponse, HttpResponse
@@ -206,7 +205,7 @@ def get_wheater(lat,lon):
     humidity = weather['main']['humidity']
     wind = round(weather['wind']['speed'] * 3.599997)
     icon = manage_icon(rain)
-    today = date.today()
+    today = timezone.now()
     result = {
         "temp":temp,
         "rain":rain,
