@@ -31,6 +31,9 @@
                     <td><input class="input" maxlength="2" autofocus name="lon_min"></td>
                     <td><input class="input" maxlength="5" autofocus name="lon_sec"></td>
                   </tr>
+                  <tr>
+                    {% include 'application/weather_widget.html' %}
+                  </tr>
                 </tbody>
                 </table>
                 <p class="help is-danger">{{r}}</p>
@@ -59,7 +62,7 @@
                 </tbody>
                 </table>
               </div>
-              {% include 'application/weather_widget.html' %}
+              
               {% endif %}
             </div>
               <div class="field is-grouped">
