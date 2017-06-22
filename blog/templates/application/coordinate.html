@@ -31,11 +31,12 @@
                     <td><input class="input" maxlength="2" autofocus name="lon_min"></td>
                     <td><input class="input" maxlength="5" autofocus name="lon_sec"></td>
                   </tr>
-                  {% include 'application/weather_widget.html' %}
                 </tbody>
                 </table>
+                {% include 'application/weather_widget.html' %}
                 <p class="help is-danger">{{r}}</p>
                 </div>
+                
                 {% if geoInfo %}
                 <div class="column is-12">
                 <table class="table">
