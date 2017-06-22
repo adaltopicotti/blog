@@ -207,13 +207,15 @@ def get_wheater(lat,lon):
     humidity = weather['main']['humidity']
     wind = round(weather['wind']['speed'] * 3.599997)
     icon = manage_icon(rain)
+    today = date.today()
     result = {
         "temp":temp,
         "rain":rain,
         "humidity":humidity,
         "clouds":clouds,
         "wind":wind,
-        "icon":icon}
+        "icon":icon
+        "today":today}
     return result
 
 
