@@ -76,12 +76,8 @@ WSGI_APPLICATION = 'adalto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'picottijunior$blog',
-        'USER': 'picottijunior',
-        'PASSWORD': '4ebd8158',
-        'HOST': 'picottijunior.mysql.pythonanywhere-services.com',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
