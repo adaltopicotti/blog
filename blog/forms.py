@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comment
+from .models import Post, Comment, ForLogic
 
 class PostForm(forms.ModelForm):
 
@@ -11,3 +11,10 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('author', 'text',)
+  
+
+class Register_4logic(forms.ModelForm):
+    class Meta:
+        model = ForLogic
+        fields = ('nome', 'email',)
+
