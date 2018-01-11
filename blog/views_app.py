@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-import json, requests, pyodbc,os
+import json, requests, pyodbc,os, pymssql
 from .models import Post, Comment, Cotador
 from django.http import JsonResponse, HttpResponse
 
@@ -42,12 +42,10 @@ def subv_est(request):
 			status = 'Ativado'
 		else:
 			status = 'Desativado'
-		os.environ["ODBCSYSINI"] = "/home/picottijunior"	
-		conn = pyodbc.connect('DSN=sqlserverdatasource;Uid=username;Pwd=password;Encrypt=yes;Connection Timeout=30;')
-		#cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+		conn = pymssql.connect(server, username, password, database)
 		cursor = cnxn.cursor()
 		for cotador in cotadores:
-			cursor.execute('UPDATE ' + cotador  + 'SET subv_est = 2'	)
+			cursor.execute('UPDATE ' + cotador  + 'SET subv_est = 2')
 		cnxn.commit()
 		return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotador, 'status': status})
 	return render(request, 'app/subv_est.html', {'cotadores': cotador, 'status': status})
