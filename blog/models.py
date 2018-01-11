@@ -47,6 +47,7 @@ class Cotador(models.Model):
     nome = models.CharField(max_length=200)
     safra = models.CharField(max_length=200)
     cultura = models.CharField(max_length=200)
+    produto = models.CharField(max_length=200)
     ativo = models.BooleanField()
     created_date = models.DateTimeField(
             default=timezone.now)
