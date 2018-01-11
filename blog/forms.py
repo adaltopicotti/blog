@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Comment, ForLogic
+from .models import Post, Comment, ForLogic, Cotador
 
 class PostForm(forms.ModelForm):
 
@@ -18,3 +18,7 @@ class Register_4logic(forms.ModelForm):
         model = ForLogic
         fields = ('nome', 'email',)
 
+class CotadorForm(forms.ModelForm):
+    class Meta:
+        model = Cotador
+        fields = ('nome', 'safra', 'cultura', 'ativo')
