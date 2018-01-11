@@ -9,12 +9,11 @@
 		<form method="POST" name="cotador" id="cotador" class="post-form">{% csrf_token %}
 			<div class="column is-10">
 			
-				<label class="label">Estado</label>
+				<label class="label">Subvenção Estadual</label>
 				<span class="select">
 					<select name="uf" class="form-control" onchange="validar()">
-						{% for uf in ufs %}
-							<option value="{{uf.id}}" {% if uf.id == uf_sel %}selected {% endif %}>{{uf.name}}</option>
-						{% endfor %}
+							<option value="Desativado" selected> </option>
+							<option value="Ativado"> </option>
 					</select>
 				</span>
 					<button type="submit" class="button is-white is outlined is-primary">
