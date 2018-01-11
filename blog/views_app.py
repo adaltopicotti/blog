@@ -27,15 +27,17 @@ lonInfo = """
 """
 
 def subv_est(request):
-	if request.method == 'POST':
+	cotadores = ['pr', 'go']
+	status = 'Desativado'
+	if request.method == 'POST':	
 		subv_status = request.POST['subv_status']
 		if subv_status == '1':
 			status = 'Ativado'
 		else:
 			status = 'Desativado'
-	cotadores = ['pr', 'go']
-	return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotadores, 'status': status})
-	return render(request, 'app/subv_est.html', {})
+		
+		return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotadores, 'status': status})
+	return render(request, 'app/subv_est.html', {'cotadores': cotadores, 'status': status})
 
 
 
