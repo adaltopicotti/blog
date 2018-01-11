@@ -29,7 +29,7 @@ lonInfo = """
 def subv_est(request):
 	if request.method == 'POST':
 		subv_status = request.POST['subv_status']
-		if subv_status == 1
+		if subv_status == '1':
 			status = 'Ativado'
 		else:
 			status = 'Desativado'
