@@ -29,7 +29,7 @@ lonInfo = """
 
 server = "cotadora7.database.windows.net"
 database = "cotador_a7"
-username = "adaltopicotti"
+username = "adaltopicotti@cotadora7.database.windows.net"
 password = "@gricola7"
 
 
