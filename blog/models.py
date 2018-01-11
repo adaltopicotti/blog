@@ -45,8 +45,8 @@ class ForLogic(models.Model):
     
 class Cotador(models.Model):
     nome = models.CharField(max_length=200)
-    safra = models.TextField()
-    cultura = models.TextField()
+    safra = models.CharField(max_length=200)
+    cultura = models.CharField(max_length=200)
     ativo = models.BooleanField()
     created_date = models.DateTimeField(
             default=timezone.now)
