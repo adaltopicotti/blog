@@ -26,6 +26,9 @@ lonInfo = """
 • Longitude: É a localização de um ponto da superfície medida em graus, nos paralelos e no meridiano de Greenwich.
 """
 
+v
+
+
 def subv_est(request):
 	cotador = Cotador.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
 	status = 'Desativado'
@@ -36,6 +39,16 @@ def subv_est(request):
 		else:
 			status = 'Desativado'
 		
+		server = 'cotadora7.database.windows.net'
+		database = 'cotador_a7'
+		username = 'adaltopicotti'
+		password = '@gricola7'
+		driver= '{ODBC Driver 13 for SQL Server}'
+		cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+		cursor = cnxn.cursor()
+		for cotador in cotadores:
+			cursor.execute('UPDATE ' + cotador  + 'SET subv_est = 2'	)
+		cnxn.commit()
 		return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotador, 'status': status})
 	return render(request, 'app/subv_est.html', {'cotadores': cotador, 'status': status})
 
