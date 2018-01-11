@@ -1,23 +1,47 @@
-{% extends 'app/base.html' %}
+{% load staticfiles %}
+<html>
+  <head>
+    {% if page_title %}
+      <title>Subvenção Estadual</title>
+    {% else %}
+      <title>Subvenção Estadual</title>
+    {% endif %}
+      <link rel="stylesheet" href="/static/css/bulma.css">
+      <link rel="stylesheet" href="/static/css/bulma.css.map">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<meta name="description" content="Conteudo sobre ciência, software, internet, tecnologia, TI, games, entre outros." />
+  </head>
+  <body>  
+    <nav class="nav has-shadow">
+	<div class="container">
+        <div class="nav-left">
+          <a class="nav-item is-hidden-mobile">Subvenção Estadual</a>
+        </div>
+        <div class="nav-left nav-menu">
+          <a class="nav-item is-tab is-hidden-mobile is-active" href="/">Home</a>
+          <!--<a class="nav-item is-tab is-hidden-mobile">Aplicações</a>-->
 
-{% block content %}
-  <div class="box">
-    <div class="tile is-ancestor">
-      <div class="tile is-parent">
-        <article class="tile is-child ">
-		<!-- SUBV ESTADUAL -->
-		
-		<div class="column is-10">
-			<label for="lbl_uf">Estado</label>
-			<select name="uf" class="form-control" onchange="validar()">
-				{% for uf in ufs %}
-					<option value="{{uf.id}}" {% if uf.id == uf_sel %}selected {% endif %}>{{uf.name}}</option>
-				{% endfor %}
-			</select>
-		</div>
-		<!-- END - SUBV ESTADUAL -->
-        </article>
-      </div>
+        </div>
+        <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+	</div>
+    </nav>
+    <div class="tabs is-right hero is-primary">
+      <span><br> </span>
     </div>
-  </div>
-{% endblock content %}
+    <!-- GRID -->
+    <div class="columns">
+      <div class="column  is-6">
+
+          <div>
+            {% block content %}
+            {% endblock %}
+          </div>
+
+      </div>
+	</div>
+    </body>
+</html>
