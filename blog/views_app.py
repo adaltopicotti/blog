@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 import json, requests
-from .models import Post, Comment
+from .models import Post, Comment, Cotador
 from django.http import JsonResponse, HttpResponse
 
 
@@ -27,6 +27,7 @@ lonInfo = """
 """
 
 def subv_est(request):
+	cot = Cotador.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
 	cotadores = ['pr', 'go']
 	status = 'Desativado'
 	if request.method == 'POST':	
@@ -37,7 +38,7 @@ def subv_est(request):
 			status = 'Desativado'
 		
 		return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotadores, 'status': status})
-	return render(request, 'app/subv_est.html', {'cotadores': cotadores, 'status': status})
+	return render(request, 'app/subv_est.html', {'cotadores': cot, 'status': status})
 
 
 
