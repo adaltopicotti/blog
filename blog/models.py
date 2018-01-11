@@ -49,6 +49,7 @@ class Cotador(models.Model):
     cultura = models.CharField(max_length=200)
     produto = models.CharField(max_length=200)
     revenda = models.CharField(max_length=200)
+    uf = models.CharField(max_length=200)
     ativo = models.BooleanField()
     created_date = models.DateTimeField(
             default=timezone.now)
