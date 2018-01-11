@@ -22,7 +22,7 @@
 				
 			</div>
 		</form>
-		<div class="column is-10">
+		<div class="column is-12">
 			<table class="table is-fullwidth">
 				<thead>
 					<td>
@@ -32,6 +32,7 @@
 						<p>STATUS</p>
 					</td>
 				</thead>
+				<tbody>
 				{% for cotador in cotadores %}
 				<tr>
 					<td>
@@ -41,7 +42,8 @@
 						<p>{{status}}</p>
 					</td>
 				</tr>
-			{% endfor %}		
+			{% endfor %}
+				</tbody>
 			</table>
 		</div>
 		<!-- END - SUBV ESTADUAL -->
