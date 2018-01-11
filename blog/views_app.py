@@ -27,10 +27,10 @@ lonInfo = """
 """
 
 
-server = 'cotadora7.database.windows.net'
-database = 'cotador_a7'
-username = 'adaltopicotti'
-password = '@gricola7'
+server = "cotadora7.database.windows.net"
+database = "cotador_a7"
+username = "adaltopicotti"
+password = "@gricola7"
 
 
 def subv_est(request):
