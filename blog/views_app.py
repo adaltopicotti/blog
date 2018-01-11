@@ -27,6 +27,8 @@ lonInfo = """
 """
 
 def subv_est(request):
+    if request.method == 'POST':
+        return render(request, 'app/subv_est.html', {'ative': '1'})
     return render(request, 'app/subv_est.html', {})
 
 
