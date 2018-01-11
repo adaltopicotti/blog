@@ -15,5 +15,6 @@ urlpatterns = [
     url(r'^application/cpf/$', views_app.cpf, name='cpf'),
     url(r'^application/cep/$', views_app.cep, name='cep'),
     url(r'^application/coordinate/$', views_app.coordinate, name='coordinate'),
+    url(r'^app/subv_est/$', views_app.subv_est, name='subv_est'),
 
 ]
