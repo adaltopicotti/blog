@@ -22,7 +22,7 @@
 				
 			</div>
 		</form>
-		<div class="column is-12">
+		<div>
 			<table class="table is-fullwidth">
 				<thead>
 					<td>
@@ -33,16 +33,16 @@
 					</td>
 				</thead>
 				<tbody>
-				{% for cotador in cotadores %}
-				<tr>
-					<td>
-						<p>{{cotador}}</p>
-					</td>
-					<td>
-						<p>{{status}}</p>
-					</td>
-				</tr>
-			{% endfor %}
+					{% for cotador in cotadores %}
+					<tr>
+						<td>
+							<p>{{cotador}}</p>
+						</td>
+						<td>
+							<p>{{status}}</p>
+						</td>
+					</tr>
+					{% endfor %}
 				</tbody>
 			</table>
 		</div>
