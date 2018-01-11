@@ -22,23 +22,23 @@
 				
 			</div>
 		</form>
-		<table class="table is-fullwidth">
-			<thead>
-				Cotador
-			</thead>
-			{% for cotador in cotadores %}
-			<tr>
-				<td>
-					<p>{{cotador}}</p>
-				</td>
-				<td>
-					<p>{{status}}</p>
-				</td>
-			</tr>
-		{% endfor %}
-
-		
-		</table>
+		<div class="column is-10">
+			<table class="table is-fullwidth">
+				<thead>
+					Cotador
+				</thead>
+				{% for cotador in cotadores %}
+				<tr>
+					<td>
+						<p>{{cotador}}</p>
+					</td>
+					<td>
+						<p>{{status}}</p>
+					</td>
+				</tr>
+			{% endfor %}		
+			</table>
+		</div>
 		<!-- END - SUBV ESTADUAL -->
         </article>
       </div>
