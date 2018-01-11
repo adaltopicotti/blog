@@ -9,15 +9,17 @@
 		<form method="POST" name="cotador" id="cotador" class="post-form">{% csrf_token %}
 			<div class="column is-10">
 			
-				<label for="lbl_uf">Estado</label>
-				<select name="uf" class="form-control" onchange="validar()">
-					{% for uf in ufs %}
-						<option value="{{uf.id}}" {% if uf.id == uf_sel %}selected {% endif %}>{{uf.name}}</option>
-					{% endfor %}
-				</select>
-				<button type="submit" class="button is-white is outlined is-primary">
-                    Ativar
-                </button>
+				<label class="label">Estado</label>
+				<span class="select">
+					<select name="uf" class="form-control" onchange="validar()">
+						{% for uf in ufs %}
+							<option value="{{uf.id}}" {% if uf.id == uf_sel %}selected {% endif %}>{{uf.name}}</option>
+						{% endfor %}
+					</select>
+					<button type="submit" class="button is-white is outlined is-primary">
+						Aplicar
+					</button>
+				</span>
 			</div>
 		</form>
 		<!-- END - SUBV ESTADUAL -->
