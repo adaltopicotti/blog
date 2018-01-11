@@ -34,6 +34,29 @@
     </div>
     <!-- GRID -->
     <div class="columns">
+	
+	<!-- Menu begin -->
+      <div class="column is-3">
+        <div class="box">
+          <aside class="menu">
+            <p class="menu-label">
+              General
+            </p>
+            <ul class="menu-list">
+              <li><a href="/">Home</a></li>
+            </ul>
+            <p class="menu-label">
+              Aplicações
+            </p>
+            <ul class="menu-list">
+              <li><a href="{% url 'cep' %}">Consulta de CEP</a></li>
+              <li><a href="{% url 'cpf' %}">Consulta de CPF</a></li>
+              <li><a href="{% url 'coordinate' %}">Coordenadas</a></li>
+            </ul>
+          </aside>
+      </div>
+    </div>
+	<!-- end menu -->
       <div class="column  is-6">
 
           <div>
