@@ -12,8 +12,8 @@
 				<label class="label">Subvenção Estadual</label>
 				<span class="select">
 					<select name="uf" class="form-control" onchange="validar()">
-							<option value="0" selected>Desativado</option>
-							<option value="1">Ativado</option>
+							<option value="0" {% if ative == '0' %}selected {% endif %}>Desativado</option>
+							<option value="1" {% if ative == '1' %}selected {% endif %}>Ativado</option>
 					</select>
 				</span>
 					<button type="submit" class="button is-white is outlined is-primary">
