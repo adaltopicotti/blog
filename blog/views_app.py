@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-import json, requests
+import json, requests, pyodbc
 from .models import Post, Comment, Cotador
 from django.http import JsonResponse, HttpResponse
 
@@ -26,7 +26,6 @@ lonInfo = """
 • Longitude: É a localização de um ponto da superfície medida em graus, nos paralelos e no meridiano de Greenwich.
 """
 
-v
 
 
 def subv_est(request):
