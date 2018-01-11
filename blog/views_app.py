@@ -31,7 +31,7 @@ server = 'cotadora7.database.windows.net'
 database = 'cotador_a7'
 username = 'adaltopicotti'
 password = '@gricola7'
-driver= '{ODBC Driver 13 for SQL Server}'
+driver= 'FreeTDS'
 
 def subv_est(request):
 	cotador = Cotador.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
