@@ -26,13 +26,13 @@
 			<table class="table is-fullwidth">
 				<thead>
 					<td>
-						<p>Cotador</p>
+						<p>Revenda</p>
 					</td>
 					<td>
 						<p>UF</p>
 					</td>
 					<td>
-						<p>Revenda</p>
+						<p>Cotador</p>
 					</td>
 					<td>
 						<p>Subv. Estadual</p>
@@ -42,13 +42,13 @@
 					{% for cotador in cotadores %}
 					<tr>
 						<td>
-							<p>{{cotador}}</p>
+							<p>{{cotador.revenda}}</p>
 						</td>
 						<td>
 							<p>{{cotador.uf}}</p>
 						</td>
 						<td>
-							<p>{{cotador.revenda}}</p>
+							<p>{{cotador}}</p>
 						</td>
 						
 						<td>
