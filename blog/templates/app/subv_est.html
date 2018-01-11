@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+{% block city %}
+{% endblock city %}
+<script>
+    function validar() {
+        document.getElementById("cotador").submit();
+    };
+</script>
+
+  <h1>
+    <nav aria-label="...">
+      <ul class="pagination pagination-sm">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        {% for page in pages %}
+          <li class="active"><a href="#">{{page}}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </h1>
+  <div class="container-fluid">
+    <div class="col-md-12 col-md-offset-3">
+      <form method="POST" name="cotador" id="cotador" class="post-form">{% csrf_token %}
+        <div class="form-group">
+
+            <button type="submit" class="btn btn-default">
+                    Calcular
+                </button>
+          <!-- Begin Subpage 1 -->
+          <br>
+          <!-- BEGIN ROW 2-->
+          <div class="row">
+            <div class="col-md-2">
+              <label for="lbl_uf">Estado</label>
+              <select name="uf" class="form-control" onchange="validar()">
+                {% for uf in ufs %}
+                <option value="{{uf.id}}" {% if uf.id == uf_sel %}selected {% endif %}>{{uf.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="lbl_city">Município</label>
+              <select name="city" class="form-control" onchange="validar()">
+                {% for city in cities %}
+                  <option value="{{city.id}}" {% if city.id == city_sel %}selected {% endif %}>{{city.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <!-- END ROW 2-->
+        </div>
+        <!-- End Subpage 1 -->
+      </form>
+    </div> <!-- Fim painel do formulário -->
+</div>
+  {% endif %}
+{% endblock %}
