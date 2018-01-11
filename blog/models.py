@@ -41,3 +41,13 @@ class ForLogic(models.Model):
     register_date = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return self.nome
+    
+    
+class Cotador(models.Model):
+    nome = models.CharField(max_length=200)
+    safra = models.TextField()
+    cultura = models.TextField()
+    ativo = models.BooleanField()
+    created_date = models.DateTimeField(
+            default=timezone.now)
+
