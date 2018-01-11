@@ -33,8 +33,8 @@ def subv_est(request):
 			status = 'Ativado'
 		else:
 			status = 'Desativado'
-		cotadores = ['pr', 'go']
-		return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotadores, 'status': status})
+	cotadores = ['pr', 'go']
+	return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotadores, 'status': status})
 	return render(request, 'app/subv_est.html', {})
 
 
