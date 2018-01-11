@@ -1,43 +1,68 @@
-{% load admin_static %}
-{% block blockbots %}
-  {{ block.super }}
-  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="{% static 'admin/css/responsive.css' %}" />
-{% endblock %}
 {% load staticfiles %}
 <html>
-    <head>
-        <title>Adalto</title>
-        <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap-theme.css' %}">
-        <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap.css' %}">
-        <script src="{% static 'bootstrap-3.3.7/js/bootstrap.js' %}"></script>
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/solution.css' %}">
-        <script src="{% static 'js/script.js' %}"></script>
-
-
-    </head>
-    <body data-spy="scroll" data-target=".bs-docs-sidebar">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <div class="page-header">
-            <h1><a href="/">| Adalto |</a></h1>
+  <head>
+    {% if page_title %}
+      <title>Subvenção Estadual</title>
+    {% else %}
+      <title>Subvenção Estadual</title>
+    {% endif %}
+      <link rel="stylesheet" href="/static/css/bulma.css">
+      <link rel="stylesheet" href="/static/css/bulma.css.map">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<meta name="description" content="Conteudo sobre ciência, software, internet, tecnologia, TI, games, entre outros." />
+  	<!-- SEO -->
+	<link rel="canonical" href="https://adapitech.com" />
+	<meta property="og:locale" content="pt_PT" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="ADAPITECH" />
+	<meta property="og:description" content="Sistemas para gerenciamento de seguros agrícolas, sinistros agrícolas, restaurantes. Templates para seu wordpress." />
+	<meta property="og:url" content="https://adapitech.com" />
+	<meta property="og:site_name" content="ADAPITECH" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:description" content="Sistemas para gerenciamento de seguros agrícolas, restaurantes. Templates para seu wordpress. [&hellip;]" />
+	<!-- / END SEO -->
+  </head>
+  <body>  
+    <nav class="nav has-shadow">
+	<div class="container">
+        <div class="nav-left">
+          <a class="nav-item is-hidden-mobile">Subvenção Estadual</a>
         </div>
-        <div class="panel panel-primary">
-          <!-- Menu begin -->
+        <div class="nav-left nav-menu">
+          <a class="nav-item is-tab is-hidden-mobile is-active" href="/">Home</a>
+          <!--<a class="nav-item is-tab is-hidden-mobile">Aplicações</a>-->
 
-            <!-- Menu end -->
-
-              {% block content %}
-              {% endblock %}
         </div>
-        </div>
-        <!--
-        <ul>
-          <li><p href="https://arxiv.org/"><i class="icon-chevron-right"></i> arXive</p></li>
-          <li><a href="https://doi.org/"><i class="icon-chevron-right"></i> doi</a></li>
-          <li><a href="http://lattes.cnpq.br/"><i class="icon-chevron-right"></i> Lattes</a></li>
-        </ul>
-      -->
+        <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+	</div>
+    </nav>
+    <div class="tabs is-right hero is-primary">
+      <span><br> </span>
+    </div>
+    <!-- GRID -->
+    <div class="columns">
+      <div class="column  is-6">
 
+          <div>
+            {% block content %}
+            {% endblock %}
+          </div>
+
+      </div>
+	</div>
+
+    <!-- Post Column begin -->
+    <div class="columns">
+      <div class="column is-offset-3 is-6">
+        <div class="block">
+
+          <a href="https://go.hotmart.com/U5832596H"><img src="http://static.wixstatic.com/media/439b6b_35147ecc2ab74cd3b60207a22b346385.png_srb_p_728_90_75_22_0.50_1.20_0.00_png_srb" border="0" width="728" height="90" /></a>
+      </div>
+      </div>
+    </div>
     </body>
 </html>
