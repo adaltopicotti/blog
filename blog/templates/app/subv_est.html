@@ -16,13 +16,6 @@
 			</select>
 		</div>
 		<!-- END - SUBV ESTADUAL -->
-          <p class="title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></p>
-          <p class="subtitle">Publicado: {{post.published_date}}</p>
-          <div class="content">
-            <!-- Content -->
-            <p>{{post.text|truncatechars:300|safe}}</p>
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
-            </div>
         </article>
       </div>
     </div>
