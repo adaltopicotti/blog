@@ -22,9 +22,20 @@
 				
 			</div>
 		</form>
-		{% for cotador in cotadores %}
-		<p>{{cotador}} .................... {{status}}</p>
+		<table>
+			<thead>
+				Cotador
+			</thead>
+			{% for cotador in cotadores %}
+			<tr>
+				<td>
+				{{cotador}}
+				</td>
+			</tr>
 		{% endfor %}
+		 .................... {{status}}
+		
+		</table>
 		<!-- END - SUBV ESTADUAL -->
         </article>
       </div>
