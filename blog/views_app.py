@@ -26,6 +26,10 @@ lonInfo = """
 • Longitude: É a localização de um ponto da superfície medida em graus, nos paralelos e no meridiano de Greenwich.
 """
 
+def subv_est(request):
+    return render(request, 'app/subv_est.html', {})
+
+
 
 def cep(request):
     recent_post = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
