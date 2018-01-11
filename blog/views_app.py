@@ -29,7 +29,8 @@ lonInfo = """
 def subv_est(request):
     if request.method == 'POST':
         subv_status = request.POST['subv_status']
-        return render(request, 'app/subv_est.html', {'ative': subv_status})
+		cotadores = {'cotador':['pr', 'go']}
+        return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotadores})
     return render(request, 'app/subv_est.html', {})
 
 
