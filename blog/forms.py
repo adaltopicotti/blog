@@ -21,4 +21,4 @@ class Register_4logic(forms.ModelForm):
 class CotadorForm(forms.ModelForm):
     class Meta:
         model = Cotador
-        fields = ('nome', 'safra', 'cultura', 'ativo')
+        fields = ('nome', 'safra', 'cultura', 'produto', 'ativo')
