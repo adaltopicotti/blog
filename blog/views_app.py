@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-import json, requests, pyodbc
+import json, requests, pyodbc,os
 from .models import Post, Comment, Cotador
 from django.http import JsonResponse, HttpResponse
 
