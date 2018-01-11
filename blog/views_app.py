@@ -42,8 +42,9 @@ def subv_est(request):
 			status = 'Ativado'
 		else:
 			status = 'Desativado'
-
-		cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+	
+		conn = pyodbc.connect('DSN=sqlserverdatasource;Uid=username;Pwd=password;Encrypt=yes;Connection Timeout=30;')
+		#cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 		cursor = cnxn.cursor()
 		for cotador in cotadores:
 			cursor.execute('UPDATE ' + cotador  + 'SET subv_est = 2'	)
