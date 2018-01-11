@@ -27,8 +27,7 @@ lonInfo = """
 """
 
 def subv_est(request):
-	cot = Cotador.objects.filter(created_date__lte=timezone.now()).order_by('-created_date')
-	cotadores = ['pr', 'go']
+	cotador = Cotador.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
 	status = 'Desativado'
 	if request.method == 'POST':	
 		subv_status = request.POST['subv_status']
@@ -37,8 +36,8 @@ def subv_est(request):
 		else:
 			status = 'Desativado'
 		
-		return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotadores, 'status': status})
-	return render(request, 'app/subv_est.html', {'cotadores': cot, 'status': status})
+		return render(request, 'app/subv_est.html', {'ative': subv_status, 'cotadores': cotador, 'status': status})
+	return render(request, 'app/subv_est.html', {'cotadores': cotador, 'status': status})
 
 
 
